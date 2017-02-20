@@ -59,18 +59,18 @@ find_mac()
 light_flicke()
 {
 
-	if [ $current_light_state = 'true' ]; then
-		curl -X PUT -d '{"on":false}' http://$LIGHT_IP/api/$USER_KEY/lights/$HUE_NUM/state
+    if [ $current_light_state = 'true' ]; then
+        curl -X PUT -d '{"on":false}' http://$LIGHT_IP/api/$USER_KEY/lights/$HUE_NUM/state
 	fi
 	sleep 0.5
 	curl -X PUT -d '{"on":true}' http://$LIGHT_IP/api/$USER_KEY/lights/$HUE_NUM/state
     sleep 0.5
     curl -X PUT -d '{"on":false}' http://$LIGHT_IP/api/$USER_KEY/lights/$HUE_NUM/state
     sleep 0.5
-    ccurl -X PUT -d '{"on":true}' http://$LIGHT_IP/api/$USER_KEY/lights/$HUE_NUM/state
+    curl -X PUT -d '{"on":true}' http://$LIGHT_IP/api/$USER_KEY/lights/$HUE_NUM/state
     sleep 0.5
     if [ $current_light_state = 'false' ]; then
-    	curl -X PUT -d '{"on":false}' http://$LIGHT_IP/api/$USER_KEY/lights/$HUE_NUM/state
+        curl -X PUT -d '{"on":false}' http://$LIGHT_IP/api/$USER_KEY/lights/$HUE_NUM/state
     if
 
 }
