@@ -42,12 +42,11 @@ find_mac()
     do
         # echo $MAC1
         for i in ${ARRAY_PHONE_MACS[@]}
-			do
-				if [ $MAC1 = '28:A0:2B:2B:94:91' ]; then
-					return 1
-				fi
-
-			done
+        do
+            if [ $MAC1 = '28:A0:2B:2B:94:91' ]; then
+                return 1
+            fi
+        done
 
         if [ $MAC1 = '28:A0:2B:2B:94:91' ]; then
             return 1
@@ -61,9 +60,9 @@ light_flicke()
 
     if [ $current_light_state = 'true' ]; then
         curl -X PUT -d '{"on":false}' http://$LIGHT_IP/api/$USER_KEY/lights/$HUE_NUM/state
-	fi
-	sleep 0.5
-	curl -X PUT -d '{"on":true}' http://$LIGHT_IP/api/$USER_KEY/lights/$HUE_NUM/state
+    fi
+    sleep 0.5
+    curl -X PUT -d '{"on":true}' http://$LIGHT_IP/api/$USER_KEY/lights/$HUE_NUM/state
     sleep 0.5
     curl -X PUT -d '{"on":false}' http://$LIGHT_IP/api/$USER_KEY/lights/$HUE_NUM/state
     sleep 0.5
